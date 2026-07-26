@@ -2,7 +2,7 @@ FROM maven:3.9.16 AS BUILDER
 WORKDIR /app
 COPY src ./src
 COPY pom.xml .
-RUN mvn clean package \
+RUN mvn clean package && \
 mv target/shipping-1.0.jar shipping.jar
 
 FROM maven:3.9.16-eclipse-temurin-17-alpine
